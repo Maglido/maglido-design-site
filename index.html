@@ -1,121 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAGLIDO — Design Commission</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAGLIDO — Design Commission</title>
+  <meta name="description" content="MAGLIDO creates premium concept design for hospitality and signature interiors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0a0a0a;
-  color: white;
-}
+  <style>
+    :root{
+      --bg:#060708;
+      --panel:#0d1013;
+      --panel-2:#10141a;
+      --line:rgba(255,255,255,.08);
+      --text:#f2f4f7;
+      --muted:rgba(255,255,255,.66);
+      --soft:rgba(255,255,255,.42);
+      --accent:#00cfff;
+      --accent-2:#6de2ff;
+      --radius:22px;
+      --shadow:0 20px 60px rgba(0,0,0,.45);
+      --max:1160px;
+    }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 480px at 10% 0%, rgba(0,207,255,.16), transparent 55%),
+        radial-gradient(700px 420px at 92% 8%, rgba(255,255,255,.08), transparent 50%),
+        radial-gradient(800px 500px at 50% 100%, rgba(0,207,255,.08), transparent 55%),
+        var(--bg);
+    }
 
-h1 {
-  font-size: 48px;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-h2 {
-  margin-top: 80px;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-p {
-  color: #bbb;
-}
+    .wrap{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
 
-.button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: #00c2ff;
-  color: black;
-  text-decoration: none;
-  border-radius: 6px;
-}
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:28px 0 22px;
+    }
 
-.section {
-  margin-top: 80px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-.box {
-  background: #111;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-</style>
+    .brand-mark{
+      width:16px;
+      height:16px;
+      border-radius:5px;
+      background:linear-gradient(135deg,var(--accent),rgba(255,255,255,.85));
+      box-shadow:0 0 26px rgba(0,207,255,.45);
+      flex:0 0 auto;
+    }
 
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .brand-text strong{
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .status-pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .hero{
+      padding:42px 0 34px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      margin-bottom:22px;
+    }
+
+    .eyebrow-dot{
+      width:8px;
+      height:8px;
+      border-radius:99px;
+      background:var(--accent);
+      box-shadow:0 0 18px rgba(0,207,255,.8);
+    }
+
+    h1{
+      margin:0;
+      max-width:10.5ch;
+      font-size:clamp(48px, 8vw, 96px);
+      line-height:.94;
+      letter-spacing:-.06em;
+      font-weight:800;
+    }
+
+    .hero-copy{
+      margin-top:22px;
+      max-width:720px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:50px;
+      padding:0 18px;
+      border-radius:14px;
+      font-weight:600;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+      border:1px solid var(--line);
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      background:linear-gradient(180deg, rgba(0,207,255,.24), rgba(0,207,255,.12));
+      border-color:rgba(0,207,255,.25);
+      color:white;
+      box-shadow:0 16px 34px rgba(0,207,255,.12);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+
+    .section{
+      padding:44px 0;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:20px;
+    }
+
+    .section-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--soft);
+      margin-bottom:10px;
+    }
+
+    .section-title{
+      margin:0;
+      font-size:clamp(26px, 3vw, 40px);
+      line-height:1.05;
+      letter-spacing:-.04em;
+    }
+
+    .section-note{
+      max-width:430px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .concept-grid{
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:18px;
+    }
+
+    .concept-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      min-height:100%;
+    }
+
+    .concept-hero{
+      position:relative;
+      aspect-ratio:16 / 9;
+      overflow:hidden;
+      background:#0b0d11;
+    }
+
+    .concept-hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.02);
+    }
+
+    .concept-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.22) 35%, rgba(0,0,0,.74) 100%);
+    }
+
+    .concept-content{
+      padding:22px 22px 24px;
+    }
+
+    .concept-tag{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:7px 11px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--soft);
+      background:rgba(255,255,255,.03);
+    }
+
+    .concept-title{
+      margin:0;
+      font-size:clamp(24px, 3vw, 38px);
+      letter-spacing:-.04em;
+      line-height:1.04;
+    }
+
+    .concept-desc{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.75;
+      max-width:58ch;
+    }
+
+    .concept-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .concept-mini{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .mini-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .mini-image{
+      aspect-ratio:16/10;
+      overflow:hidden;
+      background:#0b0d11;
+    }
+
+    .mini-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .mini-body{
+      padding:18px;
+    }
+
+    .mini-title{
+      margin:0;
+      font-size:22px;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .mini-desc{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .step{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .step-number{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--soft);
+      margin-bottom:12px;
+    }
+
+    .step-title{
+      margin:0;
+      font-size:22px;
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+
+    .step-text{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .price-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .price-label{
+      color:var(--soft);
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    .price-top{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:14px;
+    }
+
+    .price-name{
+      margin:0;
+      font-size:28px;
+      line-height:1.02;
+      letter-spacing:-.04em;
+    }
+
+    .price-value{
+      font-size:32px;
+      font-weight:800;
+      letter-spacing:-.05em;
+    }
+
+    .price-card ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+
+    .price-card li{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      padding-left:16px;
+      position:relative;
+    }
+
+    .price-card li::before{
+      content:"";
+      width:6px;
+      height:6px;
+      border-radius:99px;
+      background:var(--accent);
+      position:absolute;
+      left:0;
+      top:10px;
+    }
+
+    .disclaimer{
+      margin-top:22px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    .contact-card{
+      background:
+        radial-gradient(500px 260px at 12% 0%, rgba(0,207,255,.14), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .contact-copy{
+      max-width:620px;
+    }
+
+    .contact-title{
+      margin:0;
+      font-size:clamp(28px, 3.5vw, 46px);
+      line-height:1.02;
+      letter-spacing:-.05em;
+    }
+
+    .contact-text{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .footer{
+      padding:26px 0 50px;
+      color:var(--soft);
+      font-size:12px;
+      line-height:1.8;
+      border-top:1px solid var(--line);
+      margin-top:34px;
+    }
+
+    @media (max-width: 980px){
+      .concept-grid,
+      .pricing,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .contact-card{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width: 720px){
+      .wrap{
+        width:min(var(--max), calc(100% - 28px));
+      }
+
+      .topbar{
+        padding:22px 0 18px;
+      }
+
+      .status-pill{
+        display:none;
+      }
+
+      .hero{
+        padding:28px 0 18px;
+      }
+
+      .section{
+        padding:30px 0;
+      }
+
+      .concept-content,
+      .price-card,
+      .step,
+      .contact-card,
+      .mini-body{
+        padding:18px;
+      }
+
+      .hero-copy{
+        font-size:16px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <strong>MAGLIDO</strong>
+          <span>Signature Design Concepts</span>
+        </div>
+      </div>
+      <div class="status-pill">Commission Slot · Open</div>
+    </header>
 
-<div class="container">
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Premium concepts for hospitality & interiors
+      </div>
 
-<h1>Design you can have manufactured.</h1>
-<p>High-end concept design for hospitality and interiors.</p>
+      <h1>Design you can have manufactured.</h1>
 
-<a href="mailto:kontakt@maglido.com" class="button">Request Design</a>
+      <p class="hero-copy">
+        MAGLIDO creates high-end concept design for hospitality, interiors, and signature spatial moments.
+        You receive visual direction and concept deliverables ready to be handed over to architects, fabricators, or contractors.
+      </p>
 
-<div class="section">
-<h2>Featured Concept</h2>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Request Design</a>
+        <a class="btn btn-secondary" href="#concepts">View Concepts</a>
+      </div>
+    </section>
 
-<div class="box">
-<h3>Mirror Grid Restroom</h3>
-<p>Futuristic restroom design using reflective surfaces and integrated neon structures.</p>
+    <section class="section" id="concepts">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Featured Concepts</div>
+          <h2 class="section-title">Sell the design. Not the noise.</h2>
+        </div>
+        <div class="section-note">
+          One dominant concept leads. A second concept supports. The page behaves like a studio offer, not a gallery.
+        </div>
+      </div>
 
-<a href="mailto:kontakt@maglido.com" class="button">Request this design</a>
-</div>
+      <div class="concept-grid">
+        <article class="concept-card">
+          <div class="concept-hero">
+            <img src="https://maglidocom-fw4nxltckh.live-website.com/wp-content/uploads/2025/12/5-Glaskoerper-Neues-Modell-Gerendert-03.12.2025.jpg" alt="MAGLIDO Mirror Grid Restroom">
+            <div class="concept-overlay"></div>
+          </div>
+          <div class="concept-content">
+            <span class="concept-tag">Primary Concept</span>
+            <h3 class="concept-title">Mirror Grid Restroom</h3>
+            <p class="concept-desc">
+              A high-impact restroom concept built around reflective surfaces, structured light, and controlled visual rhythm.
+              Designed for venues that want a photographed moment rather than a functional afterthought.
+            </p>
+            <div class="concept-actions">
+              <a class="btn btn-primary" href="mailto:kontakt@maglido.com?subject=Request%20Mirror%20Grid%20Restroom">Request This Design</a>
+            </div>
+          </div>
+        </article>
 
-</div>
+        <div class="concept-mini">
+          <article class="mini-card">
+            <div class="mini-image">
+              <img src="https://maglidocom-fw4nxltckh.live-website.com/wp-content/uploads/2025/12/27.TWIN-ASCENT™.jpeg" alt="MAGLIDO Future Bar Concept">
+            </div>
+            <div class="mini-body">
+              <span class="concept-tag">Secondary Concept</span>
+              <h3 class="mini-title">Future Bar Concept</h3>
+              <p class="mini-desc">
+                A clean, light-driven bar direction for premium hospitality environments with a sharper visual identity.
+              </p>
+              <div class="concept-actions">
+                <a class="btn btn-secondary" href="mailto:kontakt@maglido.com?subject=Request%20Future%20Bar%20Concept">Request This Design</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="section">
-<h2>Second Concept</h2>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Process</div>
+          <h2 class="section-title">Simple on purpose.</h2>
+        </div>
+      </div>
 
-<div class="box">
-<h3>Future Bar Concept</h3>
-<p>Minimal glass-based bar with integrated lighting and digital interaction surfaces.</p>
+      <div class="steps">
+        <article class="step">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Request</h3>
+          <p class="step-text">
+            You request a concept or ask for a specific design shown on this page.
+          </p>
+        </article>
 
-<a href="mailto:kontakt@maglido.com" class="button">Request this design</a>
-</div>
+        <article class="step">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Receive Concept</h3>
+          <p class="step-text">
+            MAGLIDO delivers the visual concept package, design direction, and defined scope.
+          </p>
+        </article>
 
-</div>
+        <article class="step">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Build with Your Team</h3>
+          <p class="step-text">
+            Implementation is handled by your architects, contractors, or manufacturers.
+          </p>
+        </article>
+      </div>
+    </section>
 
-<div class="section">
-<h2>How it works</h2>
-<p>1. Request a concept</p>
-<p>2. MAGLIDO delivers visuals & direction</p>
-<p>3. You build with your team</p>
-</div>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Packages</div>
+          <h2 class="section-title">Two offers. No chaos.</h2>
+        </div>
+      </div>
 
-<div class="section">
-<h2>Packages</h2>
+      <div class="pricing">
+        <article class="price-card">
+          <div class="price-label">Entry</div>
+          <div class="price-top">
+            <h3 class="price-name">Vision Pitch</h3>
+            <div class="price-value">€690</div>
+          </div>
+          <ul>
+            <li>1 visual concept</li>
+            <li>1-page concept sheet</li>
+            <li>Delivery within 72 hours</li>
+            <li>Non-exclusive license (1 project)</li>
+            <li>No revisions included</li>
+          </ul>
+        </article>
 
-<div class="box">
-<p>Concept — 1 perspective</p>
-</div>
+        <article class="price-card">
+          <div class="price-label">Core Offer</div>
+          <div class="price-top">
+            <h3 class="price-name">Concept Pack</h3>
+            <div class="price-value">€2,900</div>
+          </div>
+          <ul>
+            <li>1–3 visual perspectives</li>
+            <li>1–2 page concept sheet</li>
+            <li>Material & design direction</li>
+            <li>Delivery within 5 business days</li>
+            <li>Non-exclusive license (1 project)</li>
+            <li>One minor revision included</li>
+          </ul>
+        </article>
+      </div>
 
-<div class="box">
-<p>Concept Pack — 2–3 perspectives</p>
-</div>
+      <div class="disclaimer">
+        <strong>Design scope:</strong><br>
+        MAGLIDO delivers design concepts, visuals, and design direction. Technical planning, compliance, installation, and execution are handled by the client or their contractors. No construction plans, no site supervision, no liability for implementation.
+      </div>
+    </section>
 
-</div>
+    <section class="section" id="contact">
+      <div class="contact-card">
+        <div class="contact-copy">
+          <div class="section-kicker">Contact</div>
+          <h2 class="contact-title">Request a design concept.</h2>
+          <p class="contact-text">
+            For concept licensing, commissions, or project inquiries, get in touch directly by email.
+            The current setup is intentionally simple: fewer steps, faster response, cleaner decisions.
+          </p>
+        </div>
 
-<div class="section">
-<p>
-MAGLIDO delivers design concepts, visuals, and design direction.  
-Technical planning, compliance, installation and execution are handled by the client.  
-No construction plans, no liability.
-</p>
-</div>
+        <a class="btn btn-primary" href="mailto:kontakt@maglido.com?subject=MAGLIDO%20Design%20Commission%20Request">
+          Send Request
+        </a>
+      </div>
+    </section>
 
-</div>
-
+    <footer class="footer">
+      © MAGLIDO — Signature Design Concepts.<br>
+      Visuals shown are concept representations. Production and implementation are handled externally by the client and their appointed professionals.
+    </footer>
+  </div>
 </body>
 </html>
